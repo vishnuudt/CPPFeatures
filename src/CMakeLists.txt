@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.10)
+add_definitions("-Wall" "-g" "-std=c++17" "-O0")
+file(GLOB SRC_FILES *.cpp)
+file(GLOB HEADER_FILES *.h)
+find_package(Boost 1.57 COMPONENTS filesystem thread chrono system coroutine atomic REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
+add_executable(HelloDriver ${HEADER_FILES} ${SRC_FILES} )
+target_link_libraries(HelloDriver ${Boost_LIBRARIES})
