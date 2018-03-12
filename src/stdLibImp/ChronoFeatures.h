@@ -20,7 +20,7 @@ public:
 	milliseconds millisecs{200};
 	virtual ~ChronoFeatures(){};
 
-	virtual void exportItem(){
+	virtual void exportItem() const{
 		std::cout << secs.count() << std::endl;
 	}
 };

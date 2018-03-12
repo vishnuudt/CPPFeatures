@@ -18,7 +18,7 @@ class TuplesFeatures : public ChronoFeatures{
 public:
 	std::tuple<double, int, std::string> stup = std::make_tuple(10.4, 10, "some"s);
 
-	void exportItem(){
+	void exportItem() const{
 		double mydub;
 		int myint;
 		std::string mystr;
