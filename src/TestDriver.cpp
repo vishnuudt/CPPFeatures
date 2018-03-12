@@ -10,7 +10,9 @@
 #include <vector>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
-#include "FileCacher.h"
+#include <typeinfo>
+#include "ChronoFeatures.h"
+#include "TuplesFeatures.h"
 
 using namespace std;
 
@@ -21,12 +23,14 @@ int main() {
 	boost::property_tree::ptree pt;
 	boost::property_tree::read_json("/workspace/valhalla/valhalla.json", pt);
 	auto word = 0b10'00;
+	auto s = "man";
+	std::cout << s << std::endl;
 	std::cout << word << std::endl;
-	{
-		std::unique_ptr<FileCacher> mycacher = std::make_unique<FileCacher>();
-		mycacher->doIt("some");
-	}
 
+	{
+		std::unique_ptr<ChronoFeatures> mycacher = std::make_unique<TuplesFeatures>();
+		mycacher->exportItem();
+	}
 	return 0;
 }
 
