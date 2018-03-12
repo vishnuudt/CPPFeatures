@@ -11,6 +11,8 @@
 #include <boost/interprocess/mapped_region.hpp>
 #include <boost/asio.hpp>
 #include <boost/container/vector.hpp>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/json_parser.hpp>
 
 #include "FileCacher.h"
 using namespace std;
@@ -28,6 +30,10 @@ FileCacher::~FileCacher() {
 }
 
 void FileCacher::doIt(string&& container){
+
+	boost::property_tree::ptree pt;
+	boost::property_tree::read_json("/workspace/valhalla/valhalla.json", pt);
+
 	cout << "doing it" << &container << endl;
 	boost::optional<std::string> some = boost::none;
 	cout << "done it" << some << endl;
