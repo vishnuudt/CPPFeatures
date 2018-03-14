@@ -11,26 +11,29 @@
 #include <memory>
 #include <chrono>
 #include <iostream>
+#include <type_traits>
 
 using namespace std;
 using namespace std::chrono;
 
-class ChronoFeatures{
-public:
-	seconds secs{10};
-	milliseconds millisecs{200};
-	virtual ~ChronoFeatures(){};
+namespace VVVNS{
 
-	virtual void exportItem() const{
-		std::cout << secs.count() << std::endl;
+	class ChronoFeatures{
+	public:
+		seconds secs{10};
+		milliseconds millisecs{200};
+		virtual ~ChronoFeatures(){};
 
-		auto word = 0b10'00;
-		auto s = "man";
-		std::cout << s << std::endl;
-		std::cout << word << std::endl;
-	}
-};
+		virtual void exportItem() {
+			std::cout << secs.count() << std::endl;
 
+			auto word = 0b10'00;
+			auto s = "man";
+			std::cout << s << std::endl;
+			std::cout << word << std::endl;
+		}
+	};
+}
 
 
 

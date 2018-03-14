@@ -12,23 +12,28 @@
 #include <tuple>
 #include "ChronoFeatures.h"
 
-using namespace std;
+namespace VVVNS::Features {
 
-class TuplesFeatures : public ChronoFeatures{
-public:
-	std::tuple<double, int, std::string> stup = std::make_tuple(10.4, 10, "some"s);
+	using namespace std;
 
-	void exportItem() const{
-		double mydub;
-		int myint;
-		std::string mystr;
-		std::tie (mydub, myint, mystr) = stup;
-
-		std::cout << std::get<0>(stup) <<" " << mystr << std::endl;
-	}
-
-};
+	class TuplesFeatures : public ChronoFeatures{
+	public:
+		TuplesFeatures():stup{std::make_tuple(10.4, 10, "some"s)}{}
 
 
+		void exportItem() {
+			double mydub;
+			int myint;
+			std::string mystr;
+			std::tie (mydub, myint, mystr) = stup;
+
+			std::cout << std::get<0>(stup) <<" " << mystr << std::endl;
+		}
+
+	private:
+		std::tuple<double, int, std::string> stup;
+
+	};
+}
 
 #endif /* STDLIBIMP_TUPLESFEATURES_H_ */
